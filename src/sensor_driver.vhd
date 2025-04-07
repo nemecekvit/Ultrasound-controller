@@ -69,16 +69,16 @@ architecture Behavioral of sensor_driver is
         );
     end component;
 
+    component echo_processor is
+        Port ( 
+            clk             : in STD_LOGIC;
+            rst             : in STD_LOGIC;
+            echo_in         : in STD_LOGIC;
+            data_out        : out STD_LOGIC_VECTOR (11 downto 0)
+        );
+    end component;
+
     signal trig_clock_pulse : STD_LOGIC;
-
-    signal echo_detected : STD_LOGIC := '0';
-
-    --1 clock cycle is 10 ns; it take sound +-2941 ns to travel 1 mm
-    ---I takes 2941/ 10 = 294 clock cycles to to travel 1mm --> 294 * 2 = 558 clock cycles to trvale 1mm round trip
-    constant MILIMETER : INTEGER := 588; 
-
-    signal clock_counter : INTEGER range 0 to MILIMETER +1; --- +1 to avoid overflow problems
-    signal milim_counter : INTEGER range 0 to 4001; --Max range of HC - SR04 is 4000 mm, so we use 4001 to avoid overflow problems
 
 begin
 
@@ -103,35 +103,12 @@ begin
             trig_gen => trig
         );
 
-    process (clk, rst, echo)
-    begin
-        if echo = '1' and echo_detected = '0' then
-            echo_detected <= '1';
-            clock_counter <= 0; 
-            milim_counter <= 0;
-        end if;
+    echo_process: echo_processor
+        port map(
+            clk => clk,
+            rst => rst,
+            echo_in => echo,
+            data_out => sens_out
+        );
 
-        if rising_edge(clk) then
-            if rst = '1' then
-                sens_out <= (others => '0');
-                echo_detected <= '0';
-                clock_counter <= 0; 
-                milim_counter <= 0;
-            end if; 
-
-            if echo = '1' and echo_detected = '1' then      ---echo signal is still active -> count
-                if clock_counter = MILIMETER then
-                    milim_counter <= milim_counter + 1;
-                    clock_counter <= 0;
-                else
-                    clock_counter <= clock_counter + 1;
-                end if;
-            elsif echo = '0' and echo_detected = '1' then   ---echo signal ended
-                echo_detected <= '0';
-                sens_out <= STD_LOGIC_VECTOR(TO_UNSIGNED(milim_counter, 12)); --- Convert number of milimeter into 12 bit vector
-            else
-                sens_out <= STD_LOGIC_VECTOR(TO_UNSIGNED(milim_counter, 12)); --- Convert number of milimeter into 12 bit vector
-            end if;
-        end if;
-    end process;
-end Behavioral;
+    end Behavioral;
