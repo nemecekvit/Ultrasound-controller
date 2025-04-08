@@ -55,9 +55,19 @@ begin
 
         -- ***EDIT*** Add stimuli here
         echo_in <= '1';
-        wait for 1_178_000 * TbPeriod * 2;
+        --wait for 1_178_000 * TbPeriod * 2;
+        wait for 1_481_760 * TbPeriod;
         echo_in <= '0';
-        wait for 100 * TbPeriod;
+
+
+        wait for 1000 * TbPeriod;
+
+        echo_in <= '1';
+        --wait for 1_178_000 * TbPeriod * 2;
+        wait for 500_000* TbPeriod;
+        echo_in <= '0';
+
+        wait for 1000 * TbPeriod;
 
         -- Stop the clock and hence terminate the simulation
         TbSimEnded <= '1';
