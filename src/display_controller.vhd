@@ -4,7 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 entity display_controller is
     Port ( CLK100MHZ : in STD_LOGIC;
            BTNC : in STD_LOGIC;
-           SW : in STD_LOGIC_VECTOR (15 downto 0);
+           data_in : in STD_LOGIC_VECTOR (15 downto 0);
            CA   : out STD_LOGIC;
            CB   : out STD_LOGIC;
            CC   : out STD_LOGIC;
@@ -80,10 +80,10 @@ begin
             bcd_in1 => bcdin1,
             bcd_in2 => bcdin2,
             bcd_in3 => bcdin3,
-            disp_in(3) => sw(15),
-            disp_in(2) => sw(14),
-            disp_in(1) => sw(13),
-            disp_in(0) => sw(12),
+            disp_in(3) => data_in(15),
+            disp_in(2) => data_in(14),
+            disp_in(1) => data_in(13),
+            disp_in(0) => data_in(12),
             bcd_out => bcdout,
             an => an,
             dp => dp);
