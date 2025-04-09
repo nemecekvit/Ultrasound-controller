@@ -50,7 +50,7 @@ architecture Behavioral of top_level is
     component display_controller is
         generic(
             N_PERIODS : integer
-        )
+        );
         port (
             CLK100MHZ   : in std_logic;
             data_in     : in std_logic_vector(11 downto 0);
@@ -138,7 +138,7 @@ begin
     disp_controller : component display_controller
         generic map(
             N_PERIODS   => 1_000_000
-        );
+        )
         port map(
             CLK100MHZ   => CLK100MHZ,
             data_in     => data,
