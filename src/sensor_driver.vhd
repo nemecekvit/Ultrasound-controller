@@ -34,7 +34,7 @@ entity sensor_driver is
         TRIG_SIG_PERIDOD    : INTEGER := 7_500_000                   
     );
     Port ( 
-        clk             : in STD_LOGIC;
+        CLK100MHZ       : in STD_LOGIC;
         rst             : in STD_LOGIC;
         echo            : in STD_LOGIC;
         trig            : out STD_LOGIC;
@@ -87,7 +87,7 @@ begin
             N_PERIODS => TRIG_SIG_PERIDOD
         )
         port map(
-            clk => clk,
+            clk => CLK100MHZ,
             rst => rst,
             pulse => trig_clock_pulse 
         );
@@ -98,14 +98,14 @@ begin
         )
         port map(
             bgn => trig_clock_pulse,
-            clk => clk,
+            clk => CLK100MHZ,
             rst => rst,
             trig_gen => trig
         );
 
     echo_process: echo_processor
         port map(
-            clk => clk,
+            clk => CLK100MHZ,
             rst => rst,
             echo_in => echo,
             data_out => sens_out
