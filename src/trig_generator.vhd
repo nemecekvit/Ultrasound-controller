@@ -31,10 +31,10 @@ architecture Behavioral of trig_generator is
 begin
     process (clk) is
     begin
-        if bgn = '1' then
-            start_flag <= '1';
-        end if;
         if rising_edge(clk) then
+            if bgn = '1' then
+                start_flag <= '1';
+            end if;
             if rst = '1' then --Reset signal
                 trig_gen <= '0';
                 start_flag <= '0';
