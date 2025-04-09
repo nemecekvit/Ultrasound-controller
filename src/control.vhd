@@ -29,16 +29,16 @@ begin
             case choose is
                 when 0 =>
                     bcd_out <= bcd_in0;
-                    an <= "00000001";
+                    an <= "11111110";
                 when 1 =>
                     bcd_out <= bcd_in1;
-                    an <= "00000010";
+                    an <= "11111101";
                 when 2 =>
                     bcd_out <= bcd_in2;
-                    an <= "00000100";
+                    an <= "11111011";
                 when 3 =>
                     bcd_out <= bcd_in3;
-                    an <= "00001000";
+                    an <= "11110111";
                     dp <= '1';
                 when 4 =>
                     case disp_in is
@@ -48,7 +48,7 @@ begin
                         when "0001" => bcd_out <= "0100";
                         when others => bcd_out <= "0000";
                     end case;
-                    an <= "10000000";
+                    an <= "01111111";
             end case;
 
             -- Cycle choose from 0 to 4

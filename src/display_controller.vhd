@@ -3,16 +3,11 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity display_controller is
     Port ( CLK100MHZ : in STD_LOGIC;
-           BTNC : in STD_LOGIC;
-           data_in : in STD_LOGIC_VECTOR (15 downto 0);
-           CA   : out STD_LOGIC;
-           CB   : out STD_LOGIC;
-           CC   : out STD_LOGIC;
-           CD   : out STD_LOGIC;
-           CE   : out STD_LOGIC;
-           CF   : out STD_LOGIC;
-           CG   : out STD_LOGIC;
-           DP   : out STD_LOGIC;
+           rst : in STD_LOGIC;
+           data_in : in STD_LOGIC_VECTOR (11 downto 0);
+           select_in : in STD_LOGIC_VECTOR (3 downto 0);
+           seg : out STD_LOGIC_VECTOR (6 downto 0);
+           DP :out STD_LOGIC;
            AN   : out STD_LOGIC_VECTOR (7 downto 0));
 end display_controller;
 
@@ -21,8 +16,7 @@ architecture Behavioral of display_controller is
     port (
         clear : in  STD_LOGIC;
         bcd   : in  STD_LOGIC_VECTOR (3 downto 0);
-        seg   : out STD_LOGIC_VECTOR (6 downto 0);
-        an : out STD_LOGIC_VECTOR(7 downto 0)
+        seg   : out STD_LOGIC_VECTOR (6 downto 0)
     );
     end component;
     
@@ -70,7 +64,7 @@ begin
     CLOCK : clock_enable
     port map (
            clk => CLK100MHZ,
-           rst => BTNC,
+           rst => rst,
            pulse => clk2);
            
      CONTROLLER : control
@@ -80,10 +74,7 @@ begin
             bcd_in1 => bcdin1,
             bcd_in2 => bcdin2,
             bcd_in3 => bcdin3,
-            disp_in(3) => data_in(15),
-            disp_in(2) => data_in(14),
-            disp_in(1) => data_in(13),
-            disp_in(0) => data_in(12),
+            disp_in => select_in,
             bcd_out => bcdout,
             an => an,
             dp => dp);
@@ -92,7 +83,7 @@ begin
      port map(
             binary_in => data_in,
             clk => CLK100MHZ,
-            rst => BTNC,
+            rst => rst,
             bcd_out0 => bcdin0,
             bcd_out1 => bcdin1,
             bcd_out2 => bcdin2,
@@ -101,14 +92,8 @@ begin
 
     DISP : bin2seg
     port map (
-        clear   => BTNC,
+        clear   => rst,
         bcd => bcdout,
-        seg(6)  => CA,
-        seg(5)  => CB,
-        seg(4)  => CC,
-        seg(3)  => CD,
-        seg(2)  => CE,
-        seg(1)  => CF,
-        seg(0)  => CG
+        seg => seg
     );
 end Behavioral;
