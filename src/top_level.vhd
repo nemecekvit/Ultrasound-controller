@@ -22,6 +22,10 @@ end entity top_level;
 
 architecture Behavioral of top_level is
     component sensor_driver is
+        generic (
+            TRIG_SIG_LEN        : INTEGER;
+            TRIG_SIG_PERIDOD    : INTEGER                    
+        );
         port (
             CLK100MHZ   : in    std_logic;
             echo        : in    std_logic;
@@ -66,6 +70,10 @@ architecture Behavioral of top_level is
 begin
 
     sense_drive_1 : component sensor_driver
+        generic map (
+            TRIG_SIG_LEN => 1500,
+            TRIG_SIG_PERIDOD => 7_500_000
+        )
         port map (
             CLK100MHZ   => CLK100MHZ,
             echo        => JCI(1),
@@ -75,6 +83,10 @@ begin
         );
     
     sense_drive_2 : component sensor_driver
+        generic map (
+            TRIG_SIG_LEN => 1500,
+            TRIG_SIG_PERIDOD => 7_500_000
+        )
         port map (
             CLK100MHZ   => CLK100MHZ,
             echo        => JCI(2),
@@ -84,6 +96,10 @@ begin
         );
 
     sense_drive_3 : component sensor_driver
+        generic map (
+            TRIG_SIG_LEN => 1500,
+            TRIG_SIG_PERIDOD => 7_500_000
+        )
         port map (
             CLK100MHZ   => CLK100MHZ,
             echo        => JCI(3),
@@ -93,6 +109,10 @@ begin
         );
 
     sense_drive_4 : component sensor_driver
+        generic map (
+            TRIG_SIG_LEN => 1500,
+            TRIG_SIG_PERIDOD => 7_500_000
+        )
         port map (
             CLK100MHZ   => CLK100MHZ,
             echo        => JCI(4),
