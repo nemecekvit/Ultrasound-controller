@@ -48,7 +48,7 @@ architecture Behavioral of display_controller is
     );
     end component;
     
-    component bit2bcd
+    component bin2bcd
     Port (
         clk       : in  std_logic;
         rst       : in  std_logic;
@@ -90,13 +90,15 @@ begin
             
      BCD : bin2bcd
      port map(
-            binary_in => sw,
+            binary_in => data_in,
             clk => CLK100MHZ,
             rst => BTNC,
             bcd_out0 => bcdin0,
             bcd_out1 => bcdin1,
             bcd_out2 => bcdin2,
-            bcd_out3 => bcdin3);
+            bcd_out3 => bcdin3
+    );
+
     DISP : bin2seg
     port map (
         clear   => BTNC,
