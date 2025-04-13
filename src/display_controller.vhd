@@ -21,6 +21,9 @@ architecture Behavioral of display_controller is
     end component;
     
     component clock_enable
+        generic (
+            N_PERIODS : integer := 3_500_000
+        );
         port (
            clk : in STD_LOGIC;
            rst : in STD_LOGIC;
@@ -62,6 +65,9 @@ architecture Behavioral of display_controller is
     signal bcdout : std_logic_vector(3 downto 0);
 begin
     CLOCK : clock_enable
+    generic map(
+        N_PERIODS => 3_500_000
+    )
     port map (
            clk => CLK100MHZ,
            rst => rst,
