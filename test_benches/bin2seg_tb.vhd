@@ -33,17 +33,17 @@ begin
         report "=== START ===";
         clear <= '0';
         bin <= (others => '0');
-        wait for 50ns;
+        wait for 50 ns;
         
         clear <= '1';
-        wait for 50ns;
+        wait for 50 ns;
         assert seg = "1111111"
             report "CHYBA Clear" severity error;
         
         clear <= '0';
-        for i in 0to 15 loop
+        for i in 0 to 15 loop
             bin <= std_logic_vector(to_unsigned(i, 4));
-            wait for 50ns;
+            wait for 50 ns;
         end loop;
         
         report "=== KONEC ===";
