@@ -25,7 +25,7 @@ begin
     process(clk)
     begin
         if rising_edge(clk) then
-            dp <= '0';  -- Default value
+            dp <= '1';  -- Default value
             case choose is
                 when 0 =>
                     bcd_out <= bcd_in0;
@@ -33,13 +33,13 @@ begin
                 when 1 =>
                     bcd_out <= bcd_in1;
                     an <= "11111101";
+                    dp <= '0';
                 when 2 =>
                     bcd_out <= bcd_in2;
                     an <= "11111011";
                 when 3 =>
                     bcd_out <= bcd_in3;
                     an <= "11110111";
-                    dp <= '1';
                 when 4 =>
                     case disp_in is
                         when "1000" => bcd_out <= "0001";

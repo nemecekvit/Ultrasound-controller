@@ -75,7 +75,7 @@ begin
     sense_drive_1 : component sensor_driver
         generic map (
             TRIG_SIG_LEN => 1500,
-            TRIG_SIG_PERIDOD => 7_500_000
+            TRIG_SIG_PERIDOD => 20_000_000
         )
         port map (
             CLK100MHZ   => CLK100MHZ,
@@ -88,7 +88,7 @@ begin
     sense_drive_2 : component sensor_driver
         generic map (
             TRIG_SIG_LEN => 1500,
-            TRIG_SIG_PERIDOD => 7_500_000
+            TRIG_SIG_PERIDOD => 20_000_000
         )
         port map (
             CLK100MHZ   => CLK100MHZ,
@@ -101,7 +101,7 @@ begin
     sense_drive_3 : component sensor_driver
         generic map (
             TRIG_SIG_LEN => 1500,
-            TRIG_SIG_PERIDOD => 7_500_000
+            TRIG_SIG_PERIDOD => 20_000_000
         )
         port map (
             CLK100MHZ   => CLK100MHZ,
@@ -114,7 +114,7 @@ begin
     sense_drive_4 : component sensor_driver
         generic map (
             TRIG_SIG_LEN => 1500,
-            TRIG_SIG_PERIDOD => 7_500_000
+            TRIG_SIG_PERIDOD => 20_000_000
         )
         port map (
             CLK100MHZ   => CLK100MHZ,

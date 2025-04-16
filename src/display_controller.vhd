@@ -2,6 +2,9 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity display_controller is
+    Generic(
+        N_PERIODS : integer := 100_000
+    );
     Port ( CLK100MHZ : in STD_LOGIC;
            rst : in STD_LOGIC;
            data_in : in STD_LOGIC_VECTOR (11 downto 0);
@@ -22,7 +25,7 @@ architecture Behavioral of display_controller is
     
     component clock_enable
         generic (
-            N_PERIODS : integer := 3_500_000
+            N_PERIODS : integer := 100_000
         );
         port (
            clk : in STD_LOGIC;
@@ -66,7 +69,7 @@ architecture Behavioral of display_controller is
 begin
     CLOCK : clock_enable
     generic map(
-        N_PERIODS => 3_500_000
+        N_PERIODS => 100_000
     )
     port map (
            clk => CLK100MHZ,
