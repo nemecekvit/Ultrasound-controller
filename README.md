@@ -42,7 +42,7 @@ Purpose of this part is to display distance values on 7 segment display array.
 
 
 Diagram shows internal implementation of this component.
-![display_driver diagram](/Diagrams/display_controller.svg)
+![display_driver diagram](/Diagrams/display_contoller.svg)
 ### Sensor select
 <i>Responsible team members: [Jiri Kozarek](https://github.com/jir14)</i><br>
 Purpose of this component is to switch imputs from connected [Sensor driver](#sensor-driver) to [Display driver](#display-driver). It's done by asynchronous sensor_select.vhd component which selects connected sensors based on combination set on switches SW[15-12]. Activated switch represents selected sensor (!not binary value of sensor!).
