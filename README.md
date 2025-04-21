@@ -10,12 +10,13 @@ As said, this solution uses [Nexys A7-50T FPGA platform from Digilent](https://d
 
 ### Physical realization
 Part of our job was to build the designed project from components available in the lab. This is a picture of functional version of our product.
-
 The whole realization is displayed below.
+
 ![realization](/docs/photos/all.jpg)
 
 #### Nexys A7-50T board
 As you can see in the picture the 7 segments are diveded into two parts. Left part displays sensor number which is selected by switches under the segments. Display select doesn't work in binary but as input selector of individual input pins on the port as shown. You can select which sensor to yous by switching on the switch that represents the sensor number from the left to right. Only one sensor can be selected. Otherwise, it's considered as falls state and all zeroes are displayed.
+
 ![photo of functional Nexys board](/docs/photos/board.jpg)
 
 #### Breadboard
@@ -36,6 +37,7 @@ As name implays, it's purpose is to drive ultrasonic sensors and outputing binar
 
 Diagram shows internal implementation of this component.
 ![sensor_driver diagram](/Diagrams/sensor_driver.svg)
+
 ### Display driver
 <i>Responsible team members: [Dominik Nadvornik](https://github.com/nadvornikd)</i><br>
 Purpose of this part is to display distance values on 7 segment display array.
@@ -62,3 +64,4 @@ It was decided that the team member responsible for sensor_select component will
 + [Tomas Fryza's GitHub page](https://github.com/tomas-fryza/vhdl-labs)
 + [Nexys A7-50T FPGA platform from Digilent](https://digilent.com/reference/programmable-logic/nexys-a7/start)
 + [Ultrasonic Ranging Module HC - SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)
++ [Online VHDL Testbench Template Generator](https://vhdl.lapinoo.net/)
