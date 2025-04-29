@@ -28,7 +28,8 @@ Data pins from sensors are connected through voltrage devider (5k and 10k respec
 
 ## Software description
 As far as software goes, we settled that dividing software development to multiple parts, three to be exact, is the best way for us. Overyone is responsible for own code and its functionality. Thus, we established design shown below.
-(/Diagrams/Toplevel.svg)
+![top_level diagram](/Diagrams/Toplevel.svg)
+
 ### Sensor driver
 <i>Responsible team members: [Vit Nemecek](https://github.com/nemecekvit)</i><br>
 As name implays, it's purpose is to drive ultrasonic sensors and outputing binary that represents the distance from object in mms.
@@ -65,3 +66,4 @@ It was decided that the team member responsible for sensor_select component will
 + [Nexys A7-50T FPGA platform from Digilent](https://digilent.com/reference/programmable-logic/nexys-a7/start)
 + [Ultrasonic Ranging Module HC - SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)
 + [Online VHDL Testbench Template Generator](https://vhdl.lapinoo.net/)
++ [OpenAI ChatGTP](https://openai.com/)
