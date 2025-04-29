@@ -51,7 +51,7 @@ Diagram shows internal implementation of this component.
 Purpose of this component is to switch imputs from connected [Sensor driver](#sensor-driver) to [Display driver](#display-driver). It's done by asynchronous sensor_select.vhd component which selects connected sensors based on combination set on switches SW[15-12]. Activated switch represents selected sensor (!not binary value of sensor!).
 
 
-This component is so siplme so it does not need it's own internal diagram. It's already displayed on Toplevel diagram mentioned [above](#sensor-driver).
+This component is so simple so it does not need it's own internal diagram. It's already displayed on Toplevel diagram mentioned [above](#sensor-driver).
 ### Top level
 <i>Responsible team members: [Jiri Kozarek](https://github.com/jir14)</i><br>
 This component connects all the other componets together to the functional unit. It represents virtual connections between individual parts and real hardware I/O that's nessesarry to connect and interact with sensors.
