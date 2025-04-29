@@ -33,8 +33,15 @@ As far as software goes, we settled that dividing software development to multip
 ### Sensor driver
 <i>Responsible team members: [Vit Nemecek](https://github.com/nemecekvit)</i><br>
 As name implays, it's purpose is to drive ultrasonic sensors and outputing binary that represents the distance from object in mms.
+Sensor driver is responsible for creation and processing of signals used with [ HC - SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf). As written in specification, for Ultrasound module to activate, it need to recieve at least 10 us high signal into trigger input. The manufactures also suggest that measurement cycle is no shorter then 60 ms. 
+After activation the module will raise high level on echo which duration is in proportion of range measured. Total range can be calculated using formula:
+`Range = (High Level Time * 340) / 2`
 
+- High Level Time = time in seconds  
+- Velocity = 340 m/s (speed of sound in air)
+- Range = total range in meters
 
+For this implementaiton, rather than working with with decimal numbers, it si better to essentially count have many milimeters the sound traveled. For this we use that 1 mm is proportionate to 5.8 us of round trip travel time.
 
 Diagram shows internal implementation of this component.
 ![sensor_driver diagram](/Diagrams/sensor_driver.svg)
@@ -66,4 +73,4 @@ It was decided that the team member responsible for sensor_select component will
 + [Nexys A7-50T FPGA platform from Digilent](https://digilent.com/reference/programmable-logic/nexys-a7/start)
 + [Ultrasonic Ranging Module HC - SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)
 + [Online VHDL Testbench Template Generator](https://vhdl.lapinoo.net/)
-+ [OpenAI ChatGTP](https://openai.com/)
++ [OpenAI ChatGTP](https://openai.com/) - used for creation of testing data
