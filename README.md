@@ -46,6 +46,9 @@ For this implementaiton, rather than working with with decimal numbers, it si be
 Diagram shows internal implementation of this component.
 ![sensor_driver diagram](/Diagrams/sensor_driver.svg)
 
+Simulation of sensor driver showing trigger signal and output signal derived from echo in.
+![simulation of sensor driver](/docs/photos/sensor_driver_tb.png)
+
 ### Display driver
 <i>Responsible team members: [Dominik Nadvornik](https://github.com/nadvornikd)</i><br>
 Purpose of this part is to display distance values on 7 segment display array.
@@ -59,6 +62,9 @@ Purpose of this component is to switch imputs from connected [Sensor driver](#se
 
 
 This component is so simple so it does not need it's own internal diagram. It's already displayed on Toplevel diagram mentioned [above](#sensor-driver).
+
+Simulation of sensor select showing working multiplexor.
+![simulation of sensor select](/docs/photos/sensor_select_tb.png)
 ### Top level
 <i>Responsible team members: [Jiri Kozarek](https://github.com/jir14)</i><br>
 This component connects all the other componets together to the functional unit. It represents virtual connections between individual parts and real hardware I/O that's nessesarry to connect and interact with sensors.

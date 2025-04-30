@@ -64,6 +64,11 @@ begin
         rst <= '0';
         wait for 20 ns;
 
+        echo <= '1';
+        wait for 294_118 * TbPeriod ;
+        echo <= '0';
+        wait for 20 ns;
+
         --TODO Test for echo
 
         -- ***EDIT*** Add stimuli here
