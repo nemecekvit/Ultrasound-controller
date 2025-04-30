@@ -46,7 +46,7 @@ For this implementaiton, rather than working with with decimal numbers, it si be
 Diagram shows internal implementation of this component.
 ![sensor_driver diagram](/Diagrams/sensor_driver.svg)
 
-Simulation of sensor driver showing trigger signal and output signal derived from echo in.
+Simulation of [sensor driver](/test_benches/sensor_driver_tb.vhd) showing trigger signal and output signal derived from echo in.
 ![simulation of sensor driver](/docs/photos/sensor_driver_tb.png)
 
 ### Display driver
@@ -63,7 +63,7 @@ Purpose of this component is to switch imputs from connected [Sensor driver](#se
 
 This component is so simple so it does not need it's own internal diagram. It's already displayed on Toplevel diagram mentioned [below](#top-level).
 
-Simulation of sensor select.
+Simulation of [sensor select](/test_benches/sensor_select_tb.vhd).
 ![simulation of sensor select](/docs/photos/sensor_select_tb.png)
 
 ### Top level
