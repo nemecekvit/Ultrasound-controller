@@ -62,6 +62,10 @@ Purpose of this component is to switch imputs from connected [Sensor driver](#se
 
 
 This component is so simple so it does not need it's own internal diagram. It's already displayed on Toplevel diagram mentioned [below](#top-level).
+
+Simulation of sensor select.
+![simulation of sensor select](/docs/photos/sensor_select_tb.png)
+
 ### Top level
 <i>Responsible team members: [Jiri Kozarek](https://github.com/jir14)</i><br>
 This component connects all the other componets together to the functional unit. It represents virtual connections between individual parts and real hardware I/O that's nessesarry to connect and interact with sensors.
