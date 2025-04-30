@@ -5,6 +5,7 @@
 + [Dominik Nadvornik](https://github.com/nadvornikd)
 ## Abstract
 Our goal was creating modular system for ultrasonic sensors on Nexys A7-50T platform. In our design we are using connectors (pins) on the board to connect the sensors. This solution can handle upto 15 connected senser at the same time. As a sensor it uses [Ultrasonic Ranging Module HC - SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf). It can measure upto 4 meters at claimed accuracy of sensors of 3 mm.
+**[Poster here](/docs/plakat2.png)**
 ## Hardware description
 As said, this solution uses [Nexys A7-50T FPGA platform from Digilent](https://digilent.com/reference/programmable-logic/nexys-a7/start) and [Ultrasonic Ranging Module HC - SR04](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf). With this selection of parts we have built system, which can display the senser ID and display it's value on 7 segmnets display available on the board.
 
